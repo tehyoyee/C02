@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tehyoyee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 23:12:06 by tehyoyee          #+#    #+#             */
-/*   Updated: 2021/09/16 17:23:28 by tehyoyee         ###   ########.fr       */
+/*   Created: 2021/09/16 17:59:26 by tehyoyee          #+#    #+#             */
+/*   Updated: 2021/09/16 17:59:28 by tehyoyee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include <unistd.h>
 #include <stdio.h>
 
-char    *ft_strupcase(char *str)
+unsigned int    ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-    int i;
+    unsigned int i;
+    unsigned int j;
 
     i = 0;
-    while (str[i] != '\0')
+    j = 0;
+    while (src[i] != '\0')
     {
-        str[i] = str[i] - 32;
+        i++;
+        j++;
+    }
+    i = 0;
+    while ((i < size - 1) && (src[i] != '\0'))
+    {
+        dest[i] = src[i];
         i++;
     }
-    return (str);
+    dest[i] = '\0';
+    return j;
 }
 
 int main(void)
 {
-	char a[5] = "abcde";
+    char    dest[10];
+    char    src[10] = "abcdefghij";
 
-    printf("%s", ft_strupcase(a));
+    printf("%d", ft_strlcpy(dest, src, 5));
+    printf("%s", dest);
 }
