@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 21:21:14 by taehykim          #+#    #+#             */
-/*   Updated: 2021/09/13 21:46:39 by taehykim         ###   ########.fr       */
+/*   Updated: 2021/09/20 19:11:09 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,4 @@ char	*ft_strcpy(char *dest, char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-int	main(void)
-{
-	char	dest[6];
-	char	*src = "abcdef";
-
-	write(1, ft_strcpy(dest, src), 6);
 }

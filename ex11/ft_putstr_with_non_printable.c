@@ -3,59 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_with_non_printable.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehyoyee <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: taehykim <taehykim@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 19:03:00 by tehyoyee          #+#    #+#             */
-/*   Updated: 2021/09/16 19:03:03 by tehyoyee         ###   ########.fr       */
+/*   Created: 2021/09/20 15:21:52 by taehykim          #+#    #+#             */
+/*   Updated: 2021/09/20 19:36:18 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <unistd.h>
-#include <stdio.h>
-
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }
 
-void    ft_put_hexa(char c)
+void	ft_put_hexa(char c)
 {
-    char    *arr;
-    
-    arr = "0123456789abcde";
-    if (c >= 16)
-    {
-        ft_putchar(arr[c / 16]);
-        ft_putchar(arr[c % 16]);
-    }
-    else
-    {
-        ft_putchar('0');
-        ft_putchar(arr[c % 16]);
-    }
+	char	*arr;
+
+	arr = "0123456789abcde";
+	if (c >= 16)
+	{
+		ft_putchar(arr[(unsigned int)c / 16]);
+		ft_putchar(arr[(unsigned int)c % 16]);
+	}
+	else
+	{
+		ft_putchar('0');
+		ft_putchar(arr[(unsigned int)c % 16]);
+	}
 }
 
-void    ft_putstr_non_printable(char *str)
+void	ft_putstr_non_printable(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (32 <= str[i] && str[i] <= 126)
-            ft_putchar(str[i]);
-        else
-        {
-            ft_putchar('\\');
-            ft_put_hexa(str[i]);
-        }
-        i++;
-    }
-}
-
-int main(void)
-{
-    char str[25] = "Coucou\ntu vas bien ?";
-    ft_putstr_non_printable(str);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (32 <= str[i] && str[i] <= 126)
+			ft_putchar(str[i]);
+		else
+		{
+			ft_putchar('\\');
+			ft_put_hexa(str[i]);
+		}
+		i++;
+	}
 }

@@ -1,26 +1,25 @@
-#include <stdio.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taehykim <taehykim@student.42seoul.kr      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/20 14:53:51 by taehykim          #+#    #+#             */
+/*   Updated: 2021/09/20 19:20:27 by taehykim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int    ft_str_is_numeric(char *str)
+int	ft_str_is_printable(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (!(32 <= str[i] && str[i] <= 126))
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-int main(void)
-{
-    printf("%d", ft_str_is_numeric("14"));
-    printf("%d", ft_str_is_numeric("wioewno9"));
-    printf("%d", ft_str_is_numeric(""));
-    printf("%d", ft_str_is_numeric("\n"));
-    printf("%d", ft_str_is_numeric("0"));
-    
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!(32 <= str[i] && str[i] <= 126))
+			return (0);
+		i++;
+	}
+	return (1);
 }

@@ -3,31 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehyoyee <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: taehykim <taehykim@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/16 17:23:37 by tehyoyee          #+#    #+#             */
-/*   Updated: 2021/09/16 17:24:46 by tehyoyee         ###   ########.fr       */
+/*   Created: 2021/09/20 14:57:54 by taehykim          #+#    #+#             */
+/*   Updated: 2021/09/20 19:21:48 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdio.h>
 
-char    *ft_strupcase(char *str)
+char	*ft_strupcase(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        str[i] = str[i] + 32;
-        i++;
-    }
-    return (str);
-}
-int main(void)
-{
-    char	a[5] = "ABCDE";
-
-	printf("%s", ft_strupcase(a));
-  
+	i = 0;
+	while (str[i] != '\0')
+	{
+		str[i] = str[i] + 32;
+		i++;
+	}
+	return (str);
 }

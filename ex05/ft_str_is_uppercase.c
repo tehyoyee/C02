@@ -1,26 +1,25 @@
-#include <stdio.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taehykim <taehykim@student.42seoul.kr      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/20 14:53:23 by taehykim          #+#    #+#             */
+/*   Updated: 2021/09/20 19:19:50 by taehykim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int    ft_str_is_uppercase(char *str)
+int	ft_str_is_uppercase(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (!('A' <= str[i] && str[i] <= 'Z'))
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-int main(void)
-{
-    printf("%d", ft_str_is_uppercase("14"));
-    printf("%d", ft_str_is_uppercase("ABZM"));
-    printf("%d", ft_str_is_uppercase(""));
-    printf("%d", ft_str_is_uppercase("wioe"));
-    printf("%d", ft_str_is_uppercase("0"));
-    
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!('A' <= str[i] && str[i] <= 'Z'))
+			return (0);
+		i++;
+	}
+	return (1);
 }
