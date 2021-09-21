@@ -13,43 +13,62 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	alpha(char c)
+
+int	check_up(char c)
 {
-	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
+	if  ('A' <= c && c <= 'Z')
 		return (1);
 	return (0);
 }
 
-int	ch_num(int n)
+int	check_low(char c)
 {
-	if ('0' <= n && n <= '9')
+	if ('a' <= c && c <= 'z')
 		return (1);
 	return (0);
 }
+int	check_num(char c)
+{
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
+}
+int check_first(char c)
+{
+	if (check_low(c) || check_up(c) || check_num(c))
+		return (0);
+	return (1);
+}
 
-char	*ft_capitalize(char *str)
+
+char	*ft_strcapitalize(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if ('A' <= str[i] && str[i] <= 'Z')
-		{
 			str[i] += 32;
-		}
 		i++;
 	}
-	i = 1;
-	if (alpha(str[0]))
+	if (check_low(str[0]))
 	{
 		str[0] -= 32;
 	}
-	while (str[i] != '\0')
+	i = 1;
+	while (str[i])
 	{
-		if (alpha(str[i]) && !(alpha(str[i - 1])) && !(ch_num(str[i - 1])))
+		if (check_low(str[i]) && check_first(str[i - 1]))
 			str[i] -= 32;
 		i++;
 	}
 	return (str);
+}
+
+int main(void)
+{
+	char str[54] = "salut,commenttuvas?42motsquarante-deux;cinquante+et+un";
+	ft_strcapitalize(str);
+	write(1, str, 54);
 }

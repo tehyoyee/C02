@@ -17,7 +17,7 @@ int	ft_str_is_alpha(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if ((('a' > str[i] && str[i] > 'z') || ('A' > str[i] && str[i] > 'Z')))
+		if ((('a' > str[i] || str[i] > 'z') && ('A' > str[i] || str[i] > 'Z')))
 			return (0);
 		i++;
 	}

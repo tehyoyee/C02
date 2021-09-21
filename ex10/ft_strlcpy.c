@@ -31,3 +31,11 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	dest[i] = '\0';
 	return (j);
 }
+
+int main(void)
+{
+	char a[10] = "abcd";
+	char *b = "abcd";
+
+	
+}
